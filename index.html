@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionando...</title>
+</head>
+<body>
+  <script>
+    var nums = [
+      "553188790470",
+      "553185520460",
+      "553185138343",
+      "553181099974",
+      "553187820686",
+      "553185630844",
+      "553183999792",
+      "553182918322"
+    ];
+    var msgs = [
+      "Venho%20do%20Youtube%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida!",
+      "Venho%20do%20Youtube%20e%20gostaria%20de%20falar%20com%20Giovanni",
+      "Venho%20do%20Youtube%20e%20tenho%20uma%20d%C3%BAvida"
+    ];
+    var n = nums[Math.floor(Math.random() * nums.length)];
+    var m = msgs[Math.floor(Math.random() * msgs.length)];
+    location.href = "https://api.whatsapp.com/send?phone=" + n + "&text=" + m;
+  </script>
+</body>
+</html>

@@ -6,19 +6,31 @@
 </head>
 <body>
   <script>
+    // Mensagem pronta no WhatsApp:
+    //   false = abre a conversa VAZIA (sem mensagem)
+    //   true  = abre com uma das mensagens abaixo ja digitada
+    var MENSAGEM_ATIVA = false;
+
     var nums = [
       "553131571207",
       "553187935812",
       "553131913655"
     ];
+
+    // Mensagens guardadas. So sao usadas quando MENSAGEM_ATIVA = true.
     var msgs = [
       "Tenho%20uma%20d%C3%BAvida%20e%20gostaria%20de%20falar%20com%20Giovanni",
       "Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20com%20Giovanni",
       "Oi%2C%20tenho%20uma%20d%C3%BAvida%20e%20queria%20falar%20com%20o%20Giovanni"
     ];
+
     var n = nums[Math.floor(Math.random() * nums.length)];
-    var m = msgs[Math.floor(Math.random() * msgs.length)];
-    location.replace("https://api.whatsapp.com/send?phone=" + n + "&text=" + m);
+    var url = "https://api.whatsapp.com/send?phone=" + n;
+    if (MENSAGEM_ATIVA) {
+      var m = msgs[Math.floor(Math.random() * msgs.length)];
+      url += "&text=" + m;
+    }
+    location.replace(url);
   </script>
 </body>
 </html>
